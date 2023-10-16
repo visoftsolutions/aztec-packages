@@ -76,7 +76,7 @@ WASM_EXPORT const char* pedersen___compress_with_hash_index(fr::vec_in_buf input
     try {
         std::vector<grumpkin::fq> to_compress;
         read(inputs_buffer, to_compress);
-        auto r = crypto::pedersen_commitment::compress_native(to_compress, ntohl(*hash_index));
+        auto r = crypto::pedersen_commitment::compress_native(to_compress, *hash_index);
         barretenberg::fr::serialize_to_buffer(r, output);
         return nullptr;
     } catch (const std::exception& e) {
@@ -120,7 +120,7 @@ WASM_EXPORT const char* pedersen___plookup_commit_with_hash_index(fr::vec_in_buf
         std::vector<grumpkin::fq> to_compress;
         read(inputs_buffer, to_compress);
         grumpkin::g1::affine_element pedersen_hash =
-            crypto::pedersen_commitment::lookup::commit_native(to_compress, ntohl(*hash_index));
+            crypto::pedersen_commitment::lookup::commit_native(to_compress, *hash_index);
 
         serialize::write(output, pedersen_hash);
         return nullptr;

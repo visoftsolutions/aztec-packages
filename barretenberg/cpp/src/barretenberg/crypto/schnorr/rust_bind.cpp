@@ -9,26 +9,42 @@ using affine_element = grumpkin::g1::affine_element;
 using multisig = crypto::schnorr::multisig<grumpkin::g1, KeccakHasher, Blake2sHasher>;
 using multisig_public_key = typename multisig::MultiSigPublicKey;
 
-WASM_EXPORT void schnorr_compute_public_key(uint8_t const* private_key, uint8_t* public_key_buf)
+WASM_EXPORT const char * schnorr_compute_public_key(uint8_t const* private_key, uint8_t* public_key_buf)
 {
-    auto priv_key = from_buffer<grumpkin::fr>(private_key);
-    grumpkin::g1::affine_element pub_key = grumpkin::g1::one * priv_key;
-    serialize::write(public_key_buf, pub_key);
+    try {
+        auto priv_key = from_buffer<grumpkin::fr>(private_key);
+        grumpkin::g1::affine_element pub_key = grumpkin::g1::one * priv_key;
+        serialize::write(public_key_buf, pub_key);
+    return nullptr;
+        }
+        catch (const std::exception &e)
+        {
+            return e.what(); // return the exception message
+        }
+    
 }
 
-WASM_EXPORT void schnorr_negate_public_key(uint8_t const* public_key_buffer, uint8_t* output)
+WASM_EXPORT const char * schnorr_negate_public_key(uint8_t const* public_key_buffer, uint8_t* output)
 {
+    try {
     // Negate the public key (effectively negating the y-coordinate of the public key) and return the resulting public
     // key.
     auto account_public_key = from_buffer<grumpkin::g1::affine_element>(public_key_buffer);
     serialize::write(output, -account_public_key);
+    return nullptr;
+        }
+        catch (const std::exception &e)
+        {
+            return e.what(); // return the exception message
+        }
 }
 
-WASM_EXPORT void schnorr_construct_signature(uint8_t const* message_buf,
+WASM_EXPORT const char * schnorr_construct_signature(uint8_t const* message_buf,
                                              uint8_t const* private_key,
                                              uint8_t* s,
                                              uint8_t* e)
 {
+    try {
     auto message = from_buffer<std::string>(message_buf);
     auto priv_key = from_buffer<grumpkin::fr>(private_key);
     grumpkin::g1::affine_element pub_key = grumpkin::g1::one * priv_key;
@@ -36,11 +52,18 @@ WASM_EXPORT void schnorr_construct_signature(uint8_t const* message_buf,
     auto sig = crypto::schnorr::construct_signature<Blake2sHasher, grumpkin::fq>(message, key_pair);
     write(s, sig.s);
     write(e, sig.e);
+    return nullptr;
+        }
+        catch (const std::exception &e)
+        {
+            return e.what(); // return the exception message
+        }
 }
 
-WASM_EXPORT void schnorr_verify_signature(
+WASM_EXPORT const char * schnorr_verify_signature(
     uint8_t const* message_buf, uint8_t const* pub_key, uint8_t const* sig_s, uint8_t const* sig_e, bool* result)
 {
+    try {
     auto pubk = from_buffer<grumpkin::g1::affine_element>(pub_key);
     auto message = from_buffer<std::string>(message_buf);
     std::array<uint8_t, 32> s;
@@ -50,10 +73,17 @@ WASM_EXPORT void schnorr_verify_signature(
     crypto::schnorr::signature sig = { s, e };
     *result =
         crypto::schnorr::verify_signature<Blake2sHasher, grumpkin::fq, grumpkin::fr, grumpkin::g1>(message, pubk, sig);
+        return nullptr;
+        }
+        catch (const std::exception &e)
+        {
+            return e.what(); // return the exception message
+        }
 }
 
-WASM_EXPORT void schnorr_multisig_create_multisig_public_key(uint8_t const* private_key, uint8_t* multisig_pubkey_buf)
+WASM_EXPORT const char * schnorr_multisig_create_multisig_public_key(uint8_t const* private_key, uint8_t* multisig_pubkey_buf)
 {
+    try {
     using multisig = crypto::schnorr::multisig<grumpkin::g1, KeccakHasher, Blake2sHasher>;
     using multisig_public_key = typename multisig::MultiSigPublicKey;
     auto priv_key = from_buffer<grumpkin::fr>(private_key);
@@ -63,12 +93,19 @@ WASM_EXPORT void schnorr_multisig_create_multisig_public_key(uint8_t const* priv
     auto agg_pubkey = multisig_public_key(key_pair);
 
     serialize::write(multisig_pubkey_buf, agg_pubkey);
+    return nullptr;
+        }
+        catch (const std::exception &e)
+        {
+            return e.what(); // return the exception message
+        }
 }
 
-WASM_EXPORT void schnorr_multisig_validate_and_combine_signer_pubkeys(uint8_t const* signer_pubkey_buf,
+WASM_EXPORT const char * schnorr_multisig_validate_and_combine_signer_pubkeys(uint8_t const* signer_pubkey_buf,
                                                                       affine_element::out_buf combined_key_buf,
                                                                       bool* success)
 {
+    try {
     using multisig = crypto::schnorr::multisig<grumpkin::g1, KeccakHasher, Blake2sHasher>;
     auto pubkeys = from_buffer<std::vector<multisig::MultiSigPublicKey>>(signer_pubkey_buf);
 
@@ -81,19 +118,32 @@ WASM_EXPORT void schnorr_multisig_validate_and_combine_signer_pubkeys(uint8_t co
         serialize::write(combined_key_buf, affine_element::one());
         *success = false;
     }
+    return nullptr;
+        }
+        catch (const std::exception &e)
+        {
+            return e.what(); // return the exception message
+        }
 }
 
-WASM_EXPORT void schnorr_multisig_construct_signature_round_1(uint8_t* round_one_public_output_buf,
+WASM_EXPORT const char * schnorr_multisig_construct_signature_round_1(uint8_t* round_one_public_output_buf,
                                                               uint8_t* round_one_private_output_buf)
 {
+    try {
     using multisig = crypto::schnorr::multisig<grumpkin::g1, KeccakHasher, Blake2sHasher>;
 
     auto [public_output, private_output] = multisig::construct_signature_round_1();
     serialize::write(round_one_public_output_buf, public_output);
     serialize::write(round_one_private_output_buf, private_output);
+    return nullptr;
+        }
+        catch (const std::exception &e)
+        {
+            return e.what(); // return the exception message
+        }
 }
 
-WASM_EXPORT void schnorr_multisig_construct_signature_round_2(uint8_t const* message_buf,
+WASM_EXPORT const char * schnorr_multisig_construct_signature_round_2(uint8_t const* message_buf,
                                                               uint8_t const* private_key,
                                                               uint8_t const* signer_round_one_private_buf,
                                                               uint8_t const* signer_pubkeys_buf,
@@ -101,6 +151,7 @@ WASM_EXPORT void schnorr_multisig_construct_signature_round_2(uint8_t const* mes
                                                               uint8_t* round_two_buf,
                                                               bool* success)
 {
+    try {
     using multisig = crypto::schnorr::multisig<grumpkin::g1, KeccakHasher, Blake2sHasher>;
     auto message = from_buffer<std::string>(message_buf);
     auto priv_key = from_buffer<grumpkin::fr>(private_key);
@@ -120,9 +171,15 @@ WASM_EXPORT void schnorr_multisig_construct_signature_round_2(uint8_t const* mes
     } else {
         *success = false;
     }
+    return nullptr;
+        }
+        catch (const std::exception &e)
+        {
+            return e.what(); // return the exception message
+        }
 }
 
-WASM_EXPORT void schnorr_multisig_combine_signatures(uint8_t const* message_buf,
+WASM_EXPORT const char * schnorr_multisig_combine_signatures(uint8_t const* message_buf,
                                                      uint8_t const* signer_pubkeys_buf,
                                                      uint8_t const* round_one_buf,
                                                      uint8_t const* round_two_buf,
@@ -130,6 +187,7 @@ WASM_EXPORT void schnorr_multisig_combine_signatures(uint8_t const* message_buf,
                                                      uint8_t* e,
                                                      bool* success)
 {
+    try {
     using multisig = crypto::schnorr::multisig<grumpkin::g1, KeccakHasher, Blake2sHasher>;
 
     auto message = from_buffer<std::string>(message_buf);
@@ -146,5 +204,11 @@ WASM_EXPORT void schnorr_multisig_combine_signatures(uint8_t const* message_buf,
     } else {
         *success = false;
     }
+    return nullptr;
+        }
+        catch (const std::exception &e)
+        {
+            return e.what(); // return the exception message
+        }
 }
 }

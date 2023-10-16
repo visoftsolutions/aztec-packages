@@ -55,5 +55,4 @@ const char* rust_acir_serialize_proof_into_fields(in_ptr acir_composer_ptr,
 const char* rust_acir_serialize_verification_key_into_fields(in_ptr acir_composer_ptr,
                                                              fr::vec_out_buf out_vkey,
                                                              fr::out_buf out_key_hash);
-
 }

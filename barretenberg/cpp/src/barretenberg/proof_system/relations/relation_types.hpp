@@ -11,10 +11,10 @@ namespace proof_system {
 
 template <typename T, size_t subrelation_idx>
 concept HasSubrelationLinearlyIndependentMember = requires(T) {
-                                                      {
-                                                          std::get<subrelation_idx>(T::SUBRELATION_LINEARLY_INDEPENDENT)
-                                                          } -> std::convertible_to<bool>;
-                                                  };
+    {
+        std::get<subrelation_idx>(T::SUBRELATION_LINEARLY_INDEPENDENT)
+    } -> std::convertible_to<bool>;
+};
 /**
  * @brief The templates defined herein facilitate sharing the relation arithmetic between the prover and the verifier.
  *

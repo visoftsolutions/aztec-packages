@@ -150,3 +150,20 @@ if (ENABLE_ASAN AND NOT(FUZZING))
         message(AUTHOR_WARNING "Run `export ASAN_SYMBOLIZER_PATH=\"${LLVM_SYMBOLIZER_PATH}\"` before running tests for better ASAN output (at which lines the bugs are).")
     endif()
 endif()
+
+install(TARGETS barretenberg DESTINATION lib)
+
+# Get all the .h and .hpp files recursively from the src directory
+file(GLOB_RECURSE HEADER_FILES ./*.h ./*.hpp ./*tcc)
+
+# Remove the prefix from each file path
+foreach(HEADER ${HEADER_FILES})
+    # Get the relative path of the header file to the src directory
+    file(RELATIVE_PATH HEADER_RELATIVE_PATH ${CMAKE_SOURCE_DIR}/src ${HEADER})
+    
+    # Compute the destination directory for the header
+    get_filename_component(DEST_DIR ${HEADER_RELATIVE_PATH} DIRECTORY)
+    
+    # Install the file, preserving its directory structure in the destination
+    install(FILES ${HEADER} DESTINATION include/${DEST_DIR})
+endforeach()

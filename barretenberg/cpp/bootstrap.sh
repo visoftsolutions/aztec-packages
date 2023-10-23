@@ -39,8 +39,11 @@ echo "# When running cmake directly, remember to use: --build --preset $PRESET"
 echo "#################################"
 
 # Build native.
-cmake --preset $PRESET -DCMAKE_BUILD_TYPE=RelWithAssert
-cmake --build --preset $PRESET ${@/#/--target }
+cmake --preset default -DCMAKE_BUILD_TYPE=RelWithAssert
+cmake --build --preset default ${@/#/--target }
+
+# Install native
+cmake --install build --prefix ./install
 
 cd ./build
 # The Grumpkin SRS is generated manually at the moment, only up to a large enough size for tests

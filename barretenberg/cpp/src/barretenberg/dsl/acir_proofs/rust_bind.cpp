@@ -102,7 +102,7 @@ const char* rust_acir_get_verification_key(in_ptr acir_composer_ptr, uint8_t** o
         auto acir_composer = reinterpret_cast<acir_proofs::AcirComposer*>(*acir_composer_ptr);
         auto vk = acir_composer->init_verification_key();
         // We flatten to a vector<uint8_t> first, as that's how we treat it on the calling side.
-        *out = to_heap_buffer(to_buffer(*vk));
+        *out = to_heap_buffer(*vk);
         return nullptr;
     } catch (const std::exception& e) {
         return e.what(); // return the exception message

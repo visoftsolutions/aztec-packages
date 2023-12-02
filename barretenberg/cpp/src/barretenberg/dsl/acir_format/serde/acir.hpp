@@ -4560,7 +4560,7 @@ void serde::Serializable<Circuit::Circuit>::serialize(const Circuit::Circuit& ob
     serde::Serializable<decltype(obj.private_parameters)>::serialize(obj.private_parameters, serializer);
     serde::Serializable<decltype(obj.public_parameters)>::serialize(obj.public_parameters, serializer);
     serde::Serializable<decltype(obj.return_values)>::serialize(obj.return_values, serializer);
-    serde::Serializable<decltype(obj.assert_messages)>::serialize(obj.assert_messages, serializer);
+    // serde::Serializable<decltype(obj.assert_messages)>::serialize(obj.assert_messages, serializer);
     serializer.decrease_container_depth();
 }
 
@@ -4575,7 +4575,7 @@ Circuit::Circuit serde::Deserializable<Circuit::Circuit>::deserialize(Deserializ
     obj.private_parameters = serde::Deserializable<decltype(obj.private_parameters)>::deserialize(deserializer);
     obj.public_parameters = serde::Deserializable<decltype(obj.public_parameters)>::deserialize(deserializer);
     obj.return_values = serde::Deserializable<decltype(obj.return_values)>::deserialize(deserializer);
-    obj.assert_messages = serde::Deserializable<decltype(obj.assert_messages)>::deserialize(deserializer);
+    // obj.assert_messages = serde::Deserializable<decltype(obj.assert_messages)>::deserialize(deserializer);
     deserializer.decrease_container_depth();
     return obj;
 }

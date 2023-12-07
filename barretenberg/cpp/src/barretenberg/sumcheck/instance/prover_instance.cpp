@@ -1,5 +1,5 @@
 #include "prover_instance.hpp"
-#include "barretenberg/honk/proof_system/lookup_library.hpp"
+#include "barretenberg/honk/proof_system/logderivative_library.hpp"
 #include "barretenberg/proof_system/circuit_builder/ultra_circuit_builder.hpp"
 #include "barretenberg/proof_system/composer/permutation_lib.hpp"
 #include "barretenberg/proof_system/library/grand_product_delta.hpp"
@@ -330,6 +330,8 @@ template <class Flavor> void ProverInstance_<Flavor>::initialize_prover_polynomi
         prover_polynomials.lookup_inverses = proving_key->lookup_inverses;
         prover_polynomials.q_busread = proving_key->q_busread;
         prover_polynomials.databus_id = proving_key->databus_id;
+        prover_polynomials.q_poseidon2_external = proving_key->q_poseidon2_external;
+        prover_polynomials.q_poseidon2_internal = proving_key->q_poseidon2_internal;
     }
 
     // These polynomials have not yet been computed; initialize them so prover_polynomials is "full" and we can use
@@ -451,7 +453,7 @@ void ProverInstance_<Flavor>::compute_logderivative_inverse(FF beta, FF gamma)
     relation_parameters.gamma = gamma;
 
     // Compute permutation and lookup grand product polynomials
-    lookup_library::compute_logderivative_inverse<Flavor, typename Flavor::LogDerivLookupRelation>(
+    logderivative_library::compute_logderivative_inverse<Flavor, typename Flavor::LogDerivLookupRelation>(
         prover_polynomials, relation_parameters, proving_key->circuit_size);
 }
 

@@ -2,7 +2,7 @@ name: run-examples
 
 on:
   push:
-    branches: [ "workflow" ]
+    branches: [ "latest" ]
   pull_request:
     branches: [ "latest" ]
 

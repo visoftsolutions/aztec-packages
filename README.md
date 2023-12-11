@@ -13,6 +13,11 @@ Welcome to `noir_rs`, a pure Rust implementation for generating and verifying zk
 - ![GitHub Workflow Status ArcRunner](https://github.com/visoftsolutions/noir_rs/actions/workflows/run-examples.yml/badge.svg)
 - ![Version](https://img.shields.io/badge/version-0.16.7-darkviolet)
 
+## Add `noir_rs` to your project
+```
+noir_rs = { git = "https://github.com/visoftsolutions/noir_rs.git", branch = "latest", package = "noir_rs" }
+```
+
 ## Why `noir_rs`?
 
 - **Rust-centric Design**: Leveraging Rust's impressive performance, safety, and concurrency for a robust zkSNARK platform.

@@ -2,6 +2,6 @@
 name = "poly_check_circuit"
 type = "bin"
 authors = ["Bartosz Nowak https://github.com/Okm165"]
-compiler_version = "0.19.4"
+compiler_version = ">=0.19.4"
 
 [dependencies]

@@ -2459,6 +2459,15 @@ dependencies = [
 ]
 
 [[package]]
+name = "line_check_circuit"
+version = "0.1.0"
+dependencies = [
+ "noir_rs 0.19.4 (git+https://github.com/visoftsolutions/noir_rs.git?branch=latest)",
+ "serde",
+ "serde_json",
+]
+
+[[package]]
 name = "linux-raw-sys"
 version = "0.4.12"
 source = "registry+https://github.com/rust-lang/crates.io-index"

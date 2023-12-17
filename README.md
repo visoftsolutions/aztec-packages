@@ -45,7 +45,8 @@ cargo run
 ```
 
 ### Examples list
-- [poly_check_circuit](noir/tooling/noir_rs/examples/poly_check_circuit).
+- [poly_check_circuit](noir/tooling/noir_rs/examples/poly_check_circuit)
+- [line_check_circuit](noir/tooling/noir_rs/examples/line_check_circuit) (struct serialization example)
 
 ## Building for Different Targets
 

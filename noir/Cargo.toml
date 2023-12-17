@@ -28,6 +28,7 @@ members = [
     "tooling/noir_rs/blackbox_solver",
     "tooling/noir_rs/acvm_runtime",
     "tooling/noir_rs/examples/poly_check_circuit",
+    "tooling/noir_rs/examples/line_check_circuit",
     "tooling/noir_rs",
     # ACVM
     "acvm-repo/acir_field",

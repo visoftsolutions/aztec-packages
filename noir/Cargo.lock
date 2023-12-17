@@ -24,12 +24,12 @@ dependencies = [
 [[package]]
 name = "acir"
 version = "0.35.0"
-source = "git+https://github.com/visoftsolutions/noir_rs.git?branch=latest-update#bad3f7517b7c8208937a3030da357b1e12db8731"
+source = "git+https://github.com/visoftsolutions/noir_rs.git?branch=latest#ff8f63daf9af87580c231b682517606cf8aaad4a"
 dependencies = [
- "acir_field 0.35.0 (git+https://github.com/visoftsolutions/noir_rs.git?branch=latest-update)",
+ "acir_field 0.35.0 (git+https://github.com/visoftsolutions/noir_rs.git?branch=latest)",
  "base64",
  "bincode",
- "brillig 0.35.0 (git+https://github.com/visoftsolutions/noir_rs.git?branch=latest-update)",
+ "brillig 0.35.0 (git+https://github.com/visoftsolutions/noir_rs.git?branch=latest)",
  "flate2",
  "serde",
  "thiserror",
@@ -52,7 +52,7 @@ dependencies = [
 [[package]]
 name = "acir_field"
 version = "0.35.0"
-source = "git+https://github.com/visoftsolutions/noir_rs.git?branch=latest-update#bad3f7517b7c8208937a3030da357b1e12db8731"
+source = "git+https://github.com/visoftsolutions/noir_rs.git?branch=latest#ff8f63daf9af87580c231b682517606cf8aaad4a"
 dependencies = [
  "ark-bn254",
  "ark-ff",
@@ -83,12 +83,12 @@ dependencies = [
 [[package]]
 name = "acvm"
 version = "0.35.0"
-source = "git+https://github.com/visoftsolutions/noir_rs.git?branch=latest-update#bad3f7517b7c8208937a3030da357b1e12db8731"
+source = "git+https://github.com/visoftsolutions/noir_rs.git?branch=latest#ff8f63daf9af87580c231b682517606cf8aaad4a"
 dependencies = [
- "acir 0.35.0 (git+https://github.com/visoftsolutions/noir_rs.git?branch=latest-update)",
- "acvm_blackbox_solver 0.35.0 (git+https://github.com/visoftsolutions/noir_rs.git?branch=latest-update)",
- "acvm_stdlib 0.35.0 (git+https://github.com/visoftsolutions/noir_rs.git?branch=latest-update)",
- "brillig_vm 0.35.0 (git+https://github.com/visoftsolutions/noir_rs.git?branch=latest-update)",
+ "acir 0.35.0 (git+https://github.com/visoftsolutions/noir_rs.git?branch=latest)",
+ "acvm_blackbox_solver 0.35.0 (git+https://github.com/visoftsolutions/noir_rs.git?branch=latest)",
+ "acvm_stdlib 0.35.0 (git+https://github.com/visoftsolutions/noir_rs.git?branch=latest)",
+ "brillig_vm 0.35.0 (git+https://github.com/visoftsolutions/noir_rs.git?branch=latest)",
  "indexmap 1.9.3",
  "num-bigint",
  "num-traits",
@@ -111,9 +111,9 @@ dependencies = [
 [[package]]
 name = "acvm_blackbox_solver"
 version = "0.35.0"
-source = "git+https://github.com/visoftsolutions/noir_rs.git?branch=latest-update#bad3f7517b7c8208937a3030da357b1e12db8731"
+source = "git+https://github.com/visoftsolutions/noir_rs.git?branch=latest#ff8f63daf9af87580c231b682517606cf8aaad4a"
 dependencies = [
- "acir 0.35.0 (git+https://github.com/visoftsolutions/noir_rs.git?branch=latest-update)",
+ "acir 0.35.0 (git+https://github.com/visoftsolutions/noir_rs.git?branch=latest)",
  "blake2",
  "k256",
  "p256",
@@ -153,9 +153,9 @@ dependencies = [
 [[package]]
 name = "acvm_stdlib"
 version = "0.35.0"
-source = "git+https://github.com/visoftsolutions/noir_rs.git?branch=latest-update#bad3f7517b7c8208937a3030da357b1e12db8731"
+source = "git+https://github.com/visoftsolutions/noir_rs.git?branch=latest#ff8f63daf9af87580c231b682517606cf8aaad4a"
 dependencies = [
- "acir 0.35.0 (git+https://github.com/visoftsolutions/noir_rs.git?branch=latest-update)",
+ "acir 0.35.0 (git+https://github.com/visoftsolutions/noir_rs.git?branch=latest)",
 ]
 
 [[package]]
@@ -679,9 +679,9 @@ dependencies = [
 [[package]]
 name = "brillig"
 version = "0.35.0"
-source = "git+https://github.com/visoftsolutions/noir_rs.git?branch=latest-update#bad3f7517b7c8208937a3030da357b1e12db8731"
+source = "git+https://github.com/visoftsolutions/noir_rs.git?branch=latest#ff8f63daf9af87580c231b682517606cf8aaad4a"
 dependencies = [
- "acir_field 0.35.0 (git+https://github.com/visoftsolutions/noir_rs.git?branch=latest-update)",
+ "acir_field 0.35.0 (git+https://github.com/visoftsolutions/noir_rs.git?branch=latest)",
  "serde",
 ]
 
@@ -698,10 +698,10 @@ dependencies = [
 [[package]]
 name = "brillig_vm"
 version = "0.35.0"
-source = "git+https://github.com/visoftsolutions/noir_rs.git?branch=latest-update#bad3f7517b7c8208937a3030da357b1e12db8731"
+source = "git+https://github.com/visoftsolutions/noir_rs.git?branch=latest#ff8f63daf9af87580c231b682517606cf8aaad4a"
 dependencies = [
- "acir 0.35.0 (git+https://github.com/visoftsolutions/noir_rs.git?branch=latest-update)",
- "acvm_blackbox_solver 0.35.0 (git+https://github.com/visoftsolutions/noir_rs.git?branch=latest-update)",
+ "acir 0.35.0 (git+https://github.com/visoftsolutions/noir_rs.git?branch=latest)",
+ "acvm_blackbox_solver 0.35.0 (git+https://github.com/visoftsolutions/noir_rs.git?branch=latest)",
  "num-bigint",
  "num-traits",
 ]
@@ -2459,6 +2459,15 @@ dependencies = [
 ]
 
 [[package]]
+name = "line_check_circuit"
+version = "0.1.0"
+dependencies = [
+ "noir_rs 0.19.4 (git+https://github.com/visoftsolutions/noir_rs.git?branch=latest)",
+ "serde",
+ "serde_json",
+]
+
+[[package]]
 name = "linux-raw-sys"
 version = "0.4.12"
 source = "registry+https://github.com/rust-lang/crates.io-index"
@@ -2820,18 +2829,18 @@ dependencies = [
 [[package]]
 name = "noir_rs"
 version = "0.19.4"
-source = "git+https://github.com/visoftsolutions/noir_rs.git?branch=latest-update#bad3f7517b7c8208937a3030da357b1e12db8731"
+source = "git+https://github.com/visoftsolutions/noir_rs.git?branch=latest#ff8f63daf9af87580c231b682517606cf8aaad4a"
 dependencies = [
- "acir 0.35.0 (git+https://github.com/visoftsolutions/noir_rs.git?branch=latest-update)",
- "acvm 0.35.0 (git+https://github.com/visoftsolutions/noir_rs.git?branch=latest-update)",
+ "acir 0.35.0 (git+https://github.com/visoftsolutions/noir_rs.git?branch=latest)",
+ "acvm 0.35.0 (git+https://github.com/visoftsolutions/noir_rs.git?branch=latest)",
  "base64",
  "bincode",
  "flate2",
  "hex",
- "noir_rs_acir_composer 0.19.4 (git+https://github.com/visoftsolutions/noir_rs.git?branch=latest-update)",
- "noir_rs_acvm_runtime 0.19.4 (git+https://github.com/visoftsolutions/noir_rs.git?branch=latest-update)",
- "noir_rs_barretenberg 0.19.4 (git+https://github.com/visoftsolutions/noir_rs.git?branch=latest-update)",
- "noir_rs_blackbox_solver 0.19.4 (git+https://github.com/visoftsolutions/noir_rs.git?branch=latest-update)",
+ "noir_rs_acir_composer 0.19.4 (git+https://github.com/visoftsolutions/noir_rs.git?branch=latest)",
+ "noir_rs_acvm_runtime 0.19.4 (git+https://github.com/visoftsolutions/noir_rs.git?branch=latest)",
+ "noir_rs_barretenberg 0.19.4 (git+https://github.com/visoftsolutions/noir_rs.git?branch=latest)",
+ "noir_rs_blackbox_solver 0.19.4 (git+https://github.com/visoftsolutions/noir_rs.git?branch=latest)",
  "serde",
  "thiserror",
 ]
@@ -2847,9 +2856,9 @@ dependencies = [
 [[package]]
 name = "noir_rs_acir_composer"
 version = "0.19.4"
-source = "git+https://github.com/visoftsolutions/noir_rs.git?branch=latest-update#bad3f7517b7c8208937a3030da357b1e12db8731"
+source = "git+https://github.com/visoftsolutions/noir_rs.git?branch=latest#ff8f63daf9af87580c231b682517606cf8aaad4a"
 dependencies = [
- "noir_rs_barretenberg 0.19.4 (git+https://github.com/visoftsolutions/noir_rs.git?branch=latest-update)",
+ "noir_rs_barretenberg 0.19.4 (git+https://github.com/visoftsolutions/noir_rs.git?branch=latest)",
  "thiserror",
 ]
 
@@ -2867,12 +2876,12 @@ dependencies = [
 [[package]]
 name = "noir_rs_acvm_runtime"
 version = "0.19.4"
-source = "git+https://github.com/visoftsolutions/noir_rs.git?branch=latest-update#bad3f7517b7c8208937a3030da357b1e12db8731"
+source = "git+https://github.com/visoftsolutions/noir_rs.git?branch=latest#ff8f63daf9af87580c231b682517606cf8aaad4a"
 dependencies = [
- "acvm 0.35.0 (git+https://github.com/visoftsolutions/noir_rs.git?branch=latest-update)",
- "noir_rs_acir_composer 0.19.4 (git+https://github.com/visoftsolutions/noir_rs.git?branch=latest-update)",
- "noir_rs_barretenberg 0.19.4 (git+https://github.com/visoftsolutions/noir_rs.git?branch=latest-update)",
- "noir_rs_blackbox_solver 0.19.4 (git+https://github.com/visoftsolutions/noir_rs.git?branch=latest-update)",
+ "acvm 0.35.0 (git+https://github.com/visoftsolutions/noir_rs.git?branch=latest)",
+ "noir_rs_acir_composer 0.19.4 (git+https://github.com/visoftsolutions/noir_rs.git?branch=latest)",
+ "noir_rs_barretenberg 0.19.4 (git+https://github.com/visoftsolutions/noir_rs.git?branch=latest)",
+ "noir_rs_blackbox_solver 0.19.4 (git+https://github.com/visoftsolutions/noir_rs.git?branch=latest)",
  "thiserror",
 ]
 
@@ -2892,7 +2901,7 @@ dependencies = [
 [[package]]
 name = "noir_rs_barretenberg"
 version = "0.19.4"
-source = "git+https://github.com/visoftsolutions/noir_rs.git?branch=latest-update#bad3f7517b7c8208937a3030da357b1e12db8731"
+source = "git+https://github.com/visoftsolutions/noir_rs.git?branch=latest#ff8f63daf9af87580c231b682517606cf8aaad4a"
 dependencies = [
  "base64",
  "bindgen",
@@ -2918,12 +2927,12 @@ dependencies = [
 [[package]]
 name = "noir_rs_blackbox_solver"
 version = "0.19.4"
-source = "git+https://github.com/visoftsolutions/noir_rs.git?branch=latest-update#bad3f7517b7c8208937a3030da357b1e12db8731"
+source = "git+https://github.com/visoftsolutions/noir_rs.git?branch=latest#ff8f63daf9af87580c231b682517606cf8aaad4a"
 dependencies = [
- "acir 0.35.0 (git+https://github.com/visoftsolutions/noir_rs.git?branch=latest-update)",
- "acvm 0.35.0 (git+https://github.com/visoftsolutions/noir_rs.git?branch=latest-update)",
+ "acir 0.35.0 (git+https://github.com/visoftsolutions/noir_rs.git?branch=latest)",
+ "acvm 0.35.0 (git+https://github.com/visoftsolutions/noir_rs.git?branch=latest)",
  "hex",
- "noir_rs_barretenberg 0.19.4 (git+https://github.com/visoftsolutions/noir_rs.git?branch=latest-update)",
+ "noir_rs_barretenberg 0.19.4 (git+https://github.com/visoftsolutions/noir_rs.git?branch=latest)",
  "num-bigint",
  "thiserror",
 ]
@@ -3358,7 +3367,7 @@ dependencies = [
 name = "poly_check_circuit"
 version = "0.1.0"
 dependencies = [
- "noir_rs 0.19.4 (git+https://github.com/visoftsolutions/noir_rs.git?branch=latest-update)",
+ "noir_rs 0.19.4 (git+https://github.com/visoftsolutions/noir_rs.git?branch=latest)",
  "serde",
  "serde_json",
 ]

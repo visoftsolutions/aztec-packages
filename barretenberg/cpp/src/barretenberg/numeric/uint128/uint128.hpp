@@ -195,7 +195,7 @@ template <typename B> inline void write(B& it, uint128_t const& value)
 // NOLINTNEXTLINE(tidymisc-unused-using-decls, google-global-names-in-headers, misc-unused-using-decls)
 using numeric::uint128_t;
 #else
-__extension__ using uint128_t = unsigned __int128;
+typedef unsigned long long int uint128_t __attribute__ ((mode (TI)));
 
 namespace std {
 // can ignore linter error for streaming operations, we need to add to std namespace to support printing this type!

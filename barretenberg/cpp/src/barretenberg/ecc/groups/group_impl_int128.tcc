@@ -1,7 +1,5 @@
 #pragma once
 
-#ifdef DISABLE_SHENANIGANS
-
 #include "barretenberg/ecc/groups/group.hpp"
 #include <cstdint>
 
@@ -30,5 +28,3 @@ inline void group<coordinate_field, subgroup_field, GroupParams>::conditional_ne
     *dest = predicate ? -(*src) : (*src);
 }
 } // namespace barretenberg
-
-#endif

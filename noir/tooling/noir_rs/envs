@@ -1,0 +1,18 @@
+# change it to match your path
+export NDK_HOME=$HOME/Downloads/android-ndk-r26b-linux/android-ndk-r26b
+export TOOLCHAIN=$NDK_HOME/toolchains/llvm/prebuilt/linux-x86_64
+
+export TARGET=aarch64-linux-android
+export API=31
+
+export AR=$TOOLCHAIN/bin/llvm-ar
+export CC=$TOOLCHAIN/bin/$TARGET$API-clang
+export AS=$CC
+export CXX=$TOOLCHAIN/bin/$TARGET$API-clang++
+export LD=$TOOLCHAIN/bin/ld
+export RANLIB=$TOOLCHAIN/bin/llvm-ranlib
+export STRIP=$TOOLCHAIN/bin/llvm-strip
+
+export CMAKE_TOOLCHAIN_FILE_aarch64_linux_android=$NDK_HOME/build/cmake/android.toolchain.cmake
+
+export BINDGEN_EXTRA_CLANG_ARGS="--sysroot=$TOOLCHAIN/sysroot -I$TOOLCHAIN/sysroot/usr/include"

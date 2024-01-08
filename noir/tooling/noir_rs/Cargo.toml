@@ -8,6 +8,7 @@ rust-version.workspace = true
 repository.workspace = true
 
 [dependencies]
+openssl = { version = "0.10", features = ["vendored"] }
 acir.workspace = true
 acvm.workspace = true
 noir_rs_acir_composer.workspace = true

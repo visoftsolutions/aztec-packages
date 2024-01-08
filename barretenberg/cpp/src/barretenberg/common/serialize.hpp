@@ -28,6 +28,7 @@
  *  - to_buffer
  */
 #pragma once
+#include "barretenberg/common/mem.hpp"
 #include "barretenberg/common/log.hpp"
 #include "barretenberg/common/net.hpp"
 #include "barretenberg/serialize/msgpack_apply.hpp"
@@ -40,9 +41,8 @@
 #include <type_traits>
 #include <vector>
 
-#ifndef __i386__
-__extension__ using uint128_t = unsigned __int128;
-#endif
+
+typedef unsigned long long int uint128_t __attribute__ ((mode (TI)));
 
 // clang-format off
 // disabling the following style guides:
@@ -121,7 +121,6 @@ inline void write(uint8_t*& it, uint64_t value)
     it += 8;
 }
 
-#ifndef __i386__
 inline void read(uint8_t const*& it, uint128_t& value)
 {
     uint64_t hi, lo; // NOLINT
@@ -136,7 +135,6 @@ inline void write(uint8_t*& it, uint128_t value)
     write(it, hi);
     write(it, lo);
 }
-#endif
 
 // Reading / writing integer types to / from vectors.
 void read(std::vector<uint8_t> const& buf, std::integral auto& value)

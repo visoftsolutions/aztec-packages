@@ -11,6 +11,7 @@
 #include <cstdint>
 #include <cstdio>
 #include <cstdlib>
+
 namespace barretenberg {
 
 /**
@@ -122,8 +123,4 @@ template <typename _coordinate_field, typename _subgroup_field, typename GroupPa
 
 } // namespace barretenberg
 
-#ifdef DISABLE_SHENANIGANS
 #include "group_impl_int128.tcc"
-#else
-#include "group_impl_asm.tcc"
-#endif

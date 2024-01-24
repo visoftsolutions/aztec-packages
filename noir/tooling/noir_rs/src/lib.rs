@@ -123,7 +123,7 @@ mod tests {
     use std::time::Instant;
 
     use crate::{prove, prove_local_srs, prove_net_srs, verify};
-    const SRS_PATH: &str = "/Users/michael/Dev/Swoir/transcript00.dat";
+    const SRS_PATH: &str = "transcript00.dat";
 
     #[test]
     #[serial]

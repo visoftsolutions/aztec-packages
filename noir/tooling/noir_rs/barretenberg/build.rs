@@ -1,12 +1,16 @@
+use std::env;
 use cmake::Config;
 
 fn main() {
     // Notify Cargo to rerun this build script if `build.rs` changes.
     println!("cargo:rerun-if-changed=build.rs");
 
+    // Retrieve CMAKE_BUILD_TYPE from environment or use default
+    let cmake_build_type = env::var("CMAKE_BUILD_TYPE").unwrap_or_else(|_| "RelWithAssert".to_string());
+
     // Build the C++ code using CMake and get the build directory path.
     let dst = Config::new("../../../../barretenberg/cpp")
-        .configure_arg("-DCMAKE_BUILD_TYPE=RelWithAssert")
+        .define("CMAKE_BUILD_TYPE", &cmake_build_type)
         .define("TARGET_ARCH", "skylake")
         .build();
 

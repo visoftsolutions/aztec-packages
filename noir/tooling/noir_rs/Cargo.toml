@@ -21,3 +21,6 @@ flate2.workspace = true
 hex.workspace = true
 serde.workspace = true
 thiserror.workspace = true
+
+[dev-dependencies]
+serial_test = "3.0.0"

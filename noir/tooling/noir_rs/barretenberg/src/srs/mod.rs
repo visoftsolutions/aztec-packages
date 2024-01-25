@@ -2,7 +2,15 @@ use crate::rust_srs_init_srs;
 
 use super::{parse_c_str, BackendError};
 
+pub mod localsrs;
 pub mod netsrs;
+
+pub trait Srs {
+    fn load_data(&mut self, num_points: u32);
+    fn g1_data(&self) -> &Vec<u8>;
+    fn g2_data(&self) -> &Vec<u8>;
+    fn num_points(&self) -> u32;
+}
 
 /// Initializes the SRS inside the C++ backend.
 ///

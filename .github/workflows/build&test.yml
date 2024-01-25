@@ -38,6 +38,9 @@ jobs:
     - name: Build
       working-directory: noir/tooling/noir_rs
       run: cargo build -vv
+    - name: Download SRS transcript
+      working-directory: noir/tooling/noir_rs
+      run: curl -LO https://aztec-ignition.s3.amazonaws.com/MAIN%20IGNITION/monomial/transcript00.dat
     - name: Run tests
       working-directory: noir/tooling/noir_rs
       run: cargo test -vv
